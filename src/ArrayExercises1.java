@@ -27,6 +27,7 @@ public class ArrayExercises1
         int rnd;        //random value
         
         String string;                  //string
+        String string2;                 //second string
         String delim = "[ ]+";         // delimiter for parsing input strings
         
         
@@ -53,14 +54,17 @@ public class ArrayExercises1
 
         string = JOptionPane.showInputDialog("Enter " + rnd + " numbers");  //ask input
         String[] tokens = string.split(delim);          //split tokens
+        
+        string2 = JOptionPane.showInputDialog("Select the position of the number you want to be printed");    //ask input
+        int n = Integer.parseInt(string2);          //parse string to int
 
     // ***** processing *****
         
         for(int i = 0; i < rnd; i++){
             list[i] = Integer.parseInt(tokens[i]); //split tokens in input string and store in an array
         }//end for loop
-
-
+        
+        
     // ***** output *****
 
         System.out.println("Original Order: ");
@@ -72,6 +76,11 @@ public class ArrayExercises1
         for(int i = rnd-1; i >= 0; i--){ 
             System.out.println(list [i]);
         }//arrangement of numbers in reverse order
+        
+        while(n!=-1){
+            System.out.println("Number chosen: " + list[n]);
+            n = Integer.parseInt(JOptionPane.showInputDialog("Select the position of the number you want to be printed"));
+        }//end while loop
 
     // ***** closing message *****
 
