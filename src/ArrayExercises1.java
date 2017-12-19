@@ -7,9 +7,12 @@
 //  Description:	program exercises for arrays
 //
 //
-//  Input:		random number of numbers read from keyboard into an array
-//
-//  Output:		random number of numbers printed out in normal, and in reverse order
+//  Input:		random number of numbers read from keyboard into an array, position of the number
+//                      that wants to be changed, and the number that will change the chosen number
+//                      
+//  Output:		random number of numbers printed out in normal, and in reverse order,
+//                      position of the number that wants to be changed, and the new number that will
+//                      replace the second number
 // ***********************************************************************
 
 import javax.swing.*;
@@ -28,6 +31,7 @@ public class ArrayExercises1
         
         String string;                  //string
         String string2;                 //second string
+        String string3;                 //third string
         String delim = "[ ]+";         // delimiter for parsing input strings
         
         
@@ -79,7 +83,13 @@ public class ArrayExercises1
         
         while(n!=-1){
             System.out.println("Number chosen: " + list[n]);
-            n = Integer.parseInt(JOptionPane.showInputDialog("Select the position of the number you want to be printed"));
+            
+            string3 = JOptionPane.showInputDialog("Change it to what?");        //ask for new number
+            String[] split = string3.split(delim);                          //split string
+            list[n] = Integer.parseInt(split[0]);                                //parse string to int
+            System.out.println("New number: " + list[n]);
+            
+            n = Integer.parseInt(JOptionPane.showInputDialog("Pick a number from the list"));
         }//end while loop
 
     // ***** closing message *****
