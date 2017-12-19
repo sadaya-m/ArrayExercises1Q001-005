@@ -7,31 +7,32 @@
 //  Description:	program exercises for arrays
 //
 //
-//  Input:		5 numbers read from keyboard into an array
+//  Input:		random number of numbers read from keyboard into an array
 //
-//  Output:		5 numbers printed out in normal, and in reverse order
+//  Output:		random number of numbers printed out in normal, and in reverse order
 // ***********************************************************************
 
 import javax.swing.*;
 import java.text.DecimalFormat;
+import java.util.Random;
 
 public class ArrayExercises1
 {  // begin class
     public static void main(String args[])
     {  // begin main
     // ***** declaration of constants *****
-        
-        final int five = 5;             //max array size
 
     // ***** declaration of variables *****
+        
+        int rnd;        //random value
         
         String string;                  //string
         String delim = "[ ]+";         // delimiter for parsing input strings
         
         
-        int list[] = new int[five];      //declare max array size
-
     // ***** create objects *****
+        
+        Random random = new Random();       //random variable generator
 
     // ***** create input stream *****
 
@@ -46,13 +47,16 @@ public class ArrayExercises1
         System.out.println("**********************************");
 
     // ***** get input *****
+        
+        rnd = random.nextInt(10)+1;    //process a random variable
+        int list[] = new int[rnd];      //declare max array size
 
-        string = JOptionPane.showInputDialog("Enter " + five + " numbers");  //ask input
+        string = JOptionPane.showInputDialog("Enter " + rnd + " numbers");  //ask input
         String[] tokens = string.split(delim);          //split tokens
 
     // ***** processing *****
         
-        for(int i = 0; i < five; i++){
+        for(int i = 0; i < rnd; i++){
             list[i] = Integer.parseInt(tokens[i]); //split tokens in input string and store in an array
         }//end for loop
 
@@ -60,12 +64,12 @@ public class ArrayExercises1
     // ***** output *****
 
         System.out.println("Original Order: ");
-        for(int i = 0; i < five; i++){ 
+        for(int i = 0; i < rnd; i++){ 
             System.out.println(list [i]);
         }//arrangement of numbers in original order
         
         System.out.println("Reversed Order: ");
-        for(int i = five-1; i >= 0; i--){ 
+        for(int i = rnd-1; i >= 0; i--){ 
             System.out.println(list [i]);
         }//arrangement of numbers in reverse order
 
