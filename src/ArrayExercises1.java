@@ -12,7 +12,7 @@
 //                      
 //  Output:		random number of numbers printed out in normal, and in reverse order,
 //                      position of the number that wants to be changed, and the new number that will
-//                      replace the second number
+//                      replace the second number, largest and smallest number in the array
 // ***********************************************************************
 
 import javax.swing.*;
@@ -24,7 +24,7 @@ public class ArrayExercises1
     public static void main(String args[])
     {  // begin main
     // ***** declaration of constants *****
-
+        
     // ***** declaration of variables *****
         
         int rnd;        //random value
@@ -34,6 +34,8 @@ public class ArrayExercises1
         String string3;                 //third string
         String delim = "[ ]+";         // delimiter for parsing input strings
         
+        int smallest = Integer.MAX_VALUE;
+        int largest = Integer.MIN_VALUE;
         
     // ***** create objects *****
         
@@ -91,6 +93,20 @@ public class ArrayExercises1
             
             n = Integer.parseInt(JOptionPane.showInputDialog("Pick a number from the list"));
         }//end while loop
+        
+        for(int i = 0; i < rnd; i++) {
+            if(smallest > list[i]) {
+            smallest = list[i];
+            }
+        }//end for loop
+        System.out.println("Smallest Value: " + smallest);
+        
+        for(int i = 0; i < rnd; i++) {
+            if(list[i] > largest) {
+            largest = list[i];
+            }
+        }//for loop        
+        System.out.println("Largest Value: " + largest);
 
     // ***** closing message *****
 
